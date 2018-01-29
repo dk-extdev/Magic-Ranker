@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../icons/favicon.png">
+
+    <title>Magic Video Ranker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/popup.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,700' rel='stylesheet'
+          type='text/css'>
+</head>
+
+<body>
+<div id = 'magicranker_container' class="container magicranker_container">
+    <div class="fullheight">
+        <div class="starter-box">
+            <h2>Magic Video Ranker Software</h2>
+            <h4 class="lead">Guaranteed Top Rankings on YouTube in 60 Seconds!</h4>
+        </div>
+
+        <div id="spinner" class="../icons/load_bg.png" style="position:absolute;left: 30%; display:none;">
+            <img src="../icons/Distraction.gif" id="busy-indicator" alt="">
+        </div>
+        <form id="formyoutube" method="post" action="">
+            <div class="search-box">
+
+                <div class="alert alert-info">Enter Your Keywords Here</div>
+                <textarea id="keywords" name="keywords" required></textarea>
+                <p class="text-info">Limit To 50 Keywords Per Search.</p>
+                <!--<label>Show Me Only Keywords That Are:</label> -->
+                <ul style="display: none;">
+                    <li><label class="checkbox1"><input type="checkbox" name="easy_plus"
+                                                        checked="checked"/><span></span>
+                            Super Easy</label></li>
+                    <li><label class="checkbox1"><input type="checkbox" name="veryeasy" checked="checked"/><span></span>
+                            Very Easy</label></li>
+                    <li><label class="checkbox1"><input type="checkbox" name="easy" checked="checked"/><span></span>
+                            Easy</label></li>
+                    <li><label class="checkbox1"><input type="checkbox" checked="checked" name="medium"/><span></span>
+                            Medium</label></li>
+                    <li><label class="checkbox1"><input type="checkbox" checked="checked" name="hard"/><span></span>
+                            Hard</label></li>
+                </ul>
+                <input type="submit" name="search" id = "search_key" value="Predict Magic Keywords"/>
+        </form>
+    </div>
+    </form>
+<!--a name="results"></a-->
+<div id = 'search-result' class="search-result">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="alert alert-info"><h3>Keyword Ranking Quality Chart</h3></div>
+    </div>
+		<div class="table_wrapper">
+			<table id='result_table' class="table table-striped table-bordered">
+        <tr>
+            <th>Rank Quality</th>
+            <th>Guaranteed Rank Prediction</th>
+        </tr>
+			</table>
+		</div>
+    
+    <div class="text-center" style="padding: 8px;">
+        <button id='another_search' class="btn btn-primary btn-lg" style="font-size: 16px !important;">Run Another Prediction
+        </button>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<p>
+<center>
+    All Right Reserved &copy; 2017 Magic Video Ranker Software
+</center>
+</p>
+</div><!-- /.container -->
+<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/popup.js"></script>
+</body>
+</html>

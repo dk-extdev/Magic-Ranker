@@ -1,0 +1,6 @@
+6,10  : Full String Matches > 6 && Full String Matches < 10 = Easy
+6,13  : Full String Matches <= 6 && Partial String Matches <= 13
+2000  : Entitle string > 2000 = Easy
+5,13  : Full string matches > 5 && Partial string matches > 13 = Easy
+10,50 : Full string matches > 10 && Full string matches < 50 = Medium
+50,50 : Full String Matches > 50 && Full String matches < 50 = Medium
