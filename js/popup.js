@@ -72,29 +72,33 @@ jQuery(document).ready(function () {
 							var med_str = "<span class='red'>Below Average</span>";
 							var hard_str = "<span class='red'>Poor</span>";
 							if (parseInt(fulldata_count) > parseInt(zero[0]) && fulldata_count < parseInt(zero[1])) {
+								console.log('1');
 								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+avg_str+'</td></tr>');
-							}else if (parseInt(fulldata_count) <= parseInt(one[0]) && parseInt(partialdata_count) <= parseInt(one[1])) {
+							} else if (parseInt(fulldata_count) > parseInt(four[0]) && parseInt(fulldata_count) < parseInt(four[1])) {
+								console.log('5');
+								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+med_str+'</td></tr>');
+							} else if (parseInt(fulldata_count) > parseInt(five[0]) && parseInt(fulldata_count) < parseInt(five[1])) {
+								console.log('6');
+								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+med_str+'</td></tr>');
+							} else if (parseInt(fulldata_count) <= parseInt(one[0]) && parseInt(partialdata_count) <= parseInt(one[1])) {
 								var match = findValueInString(search_keywords_value);
 								console.log(misspeled);
-								if (parseInt(misspeled) != 0) {
-									console.log("1");
-									$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+avg_str+'</td></tr>');
-								} else if (match == true) {
+								if (match == true) {
 									$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+good_str+'</td></tr>');
 								} else if (parseInt(indata_count) > parseInt(two)) {
-									console.log("2");
+									console.log("3");
 									$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+avg_str+'</td></tr>');
 								} else if (parseInt(fulldata_count) > parseInt(three[0]) && parseInt(partialdata_count) > parseInt(three[1])) {
-									console.log("3");
+									console.log("4");
 										$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+avg_str+'</td></tr>');
+								} else if (parseInt(misspeled) != 0) {
+									console.log("2");
+									$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+avg_str+'</td></tr>');
 								} else {
 									$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+ext_str+'</td></tr>');
 								}
-							} else if (parseInt(fulldata_count) > parseInt(four[0]) && parseInt(fulldata_count) < parseInt(four[1])) {
-								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+med_str+'</td></tr>');
-							} else if (parseInt(fulldata_count) > parseInt(five[0]) && parseInt(fulldata_count) < parseInt(five[1])) {
-								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+med_str+'</td></tr>');
 							} else {
+								console.log('7');
 								$('#result_table tr:last').after('<tr><td>'+search_keywords_value+'</td><td>'+hard_str+'</td></tr>');
 							}
 							if(last){
@@ -102,10 +106,34 @@ jQuery(document).ready(function () {
 								$('#spinner').hide();
 								$('#search-result').show();
 							}
-						},'text');
-					},'text');
-				},'text');
-			},'text');
+						},'text').fail(function() {
+							$('#spinner').hide();
+							$("#warningLimit").show();
+							setTimeout(function(){
+								$("#warningLimit").hide();
+							}, 3000);
+						});
+					},'text').fail(function() {
+						$('#spinner').hide();
+						$("#warningLimit").show();
+						setTimeout(function(){
+							$("#warningLimit").hide();
+						}, 3000);
+					});
+				},'text').fail(function() {
+					$('#spinner').hide();
+					$("#warningLimit").show();
+					setTimeout(function(){
+						$("#warningLimit").hide();
+					}, 3000);
+				});
+			},'text').fail(function() {
+				$('#spinner').hide();
+				$("#warningLimit").show();
+				setTimeout(function(){
+					$("#warningLimit").hide();
+				}, 3000);
+			});
 		}, 500);
 	}
 	$('#search_key').click(function(){

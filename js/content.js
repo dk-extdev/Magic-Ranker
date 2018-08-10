@@ -18,6 +18,7 @@ jQuery(document).ready(function () {
 					<form id="formyoutube" method="post" action="">\
 							<div class="search-box">\
 									<div class="alert alert-info">Enter Your Keywords Here</div>\
+									<div id="warningLimit" class="alert alert-danger" style="display:none;">You have reached your limit on searches set by Google, please try again tomorrow</div>\
 									<textarea id="keywords" name="keywords" required></textarea>\
 									<p class="text-info">Limit To 50 Keywords Per Search.</p>\
 									<input type="submit" name="search" id = "search_key" style="font-size: 16px;" value="Predict Magic Keywords"/>\
@@ -157,10 +158,34 @@ jQuery(document).ready(function () {
 								$('#spinner').hide();
 								$('#search-result').show();
 							}
-						},'text');
-					},'text');
-				},'text');
-			},'text');
+						},'text').fail(function() {
+							$('#spinner').hide();
+							$("#warningLimit").show();
+							setTimeout(function(){
+								$("#warningLimit").hide();
+							}, 3000);
+						});
+					},'text').fail(function() {
+						$('#spinner').hide();
+						$("#warningLimit").show();
+						setTimeout(function(){
+							$("#warningLimit").hide();
+						}, 3000);
+					});
+				},'text').fail(function() {
+					$('#spinner').hide();
+					$("#warningLimit").show();
+					setTimeout(function(){
+						$("#warningLimit").hide();
+					}, 3000);
+				});
+			},'text').fail(function() {
+				$('#spinner').hide();
+				$("#warningLimit").show();
+				setTimeout(function(){
+					$("#warningLimit").hide();
+				}, 3000);
+			});
 		}, 500);
 	}
 	$('#search_key').click(function(){
