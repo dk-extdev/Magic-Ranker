@@ -139,8 +139,8 @@ jQuery(document).ready(function () {
 	$('#search_key').click(function(){
 		var search_keywords = $("#keywords").val().split("\n");
 		search_keywords = search_keywords.filter(Boolean);
-		if (search_keywords.length > 50) {
-				alert('Max 50 keywords allowed!');
+		if (search_keywords.length > 21) {
+				alert('Max 20 keywords allowed!');
 				return false;
 		}
 		$('#spinner').show();

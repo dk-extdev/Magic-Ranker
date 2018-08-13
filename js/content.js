@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
 									<div class="alert alert-info">Enter Your Keywords Here</div>\
 									<div id="warningLimit" class="alert alert-danger" style="display:none;">You have reached your limit on searches set by Google, please try again tomorrow</div>\
 									<textarea id="keywords" name="keywords" required></textarea>\
-									<p class="text-info">Limit To 50 Keywords Per Search.</p>\
+									<p class="text-info">Limit To 20 Keywords Per Search.</p>\
 									<input type="submit" name="search" id = "search_key" style="font-size: 16px;" value="Predict Magic Keywords"/>\
 							</div>\
 					</form>\
@@ -191,8 +191,8 @@ jQuery(document).ready(function () {
 	$('#search_key').click(function(){
 		var search_keywords = $("#keywords").val().split("\n");
 		search_keywords = search_keywords.filter(Boolean);
-		if (search_keywords.length > 50) {
-				alert('Max 50 keywords allowed!');
+		if (search_keywords.length > 21) {
+				alert('Max 20 keywords allowed!');
 				return false;
 		}
 		$('#spinner').show();
